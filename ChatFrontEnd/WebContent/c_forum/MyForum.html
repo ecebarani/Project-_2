@@ -1,0 +1,17 @@
+<div class="container" ng-controller="ForumController">
+
+<table class="table">
+  
+   <tr>
+      <td>Forum Name</td>
+      <td>Forum Content</td>
+   </tr>
+   
+   <tr ng-repeat="forum in allforumdata">
+   <td ng-show="forum.loginname==currentUser">{{forum.forumName}}</td>
+   <td ng-show="forum.loginname==currentUser">{{forum.forumContent}}</td>
+   <td ng-show="forum.loginname==currentUser">{{forum.status}}</td>
+   <td ng-show="forum.loginname==currentUser"><input type="button" value="Delete Forum" ng-click="deleteForum(forum.forumId)" class="btn btn-info"></td>
+   </tr>
+</table>
+</div>

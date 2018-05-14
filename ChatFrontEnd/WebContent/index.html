@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
+<head>
+<title></title>
+<script src="RouteConfig.js"></script>
+
+<script src="c_user/UserController.js"></script>
+<script src="c_blog/BlogController.js"></script>
+<script src="c_friend/FriendController.js"></script>
+<script src="c_job/JobController.js"></script>
+<script src="c_chat/ChatController.js"></script>
+<script src="c_chat/ChatService.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.3/lodash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.js"></script>
+
+<body ng-app="myApp">
+
+<div id="upperlabel" class="container-fluid">
+<label>Social Icon</label>
+</div>
+
+<div class="container">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CHATCOLLABORATE</a>
+    </div>
+    
+    <ui class="nav navbar-nav">
+    <li><a href="#/home">HOME</a></li>
+    <li ng-hide="currentUser.role=='ROLE_ADMIN'||currentUser.role=='ROLE_USER'"><a href="#/login">LOGIN</a></li>
+    <li ng-hide="currentUser.role=='ROLE_ADMIN'||currentUser.role=='ROLE_USER'"><a href="#/register">REGISTER</a></li>
+    
+  
+    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">BLOG <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+       <li ng-hide="currentUser==undefined"><a href="#/blog">addBlog</a></li>
+       <li><a href="#/showblog">showBlog</a></li>  
+       <li ng-hide="currentUser==undefined"><a href="#/myblog">MyBlog</a></li> 
+       <li ng-show="currentUser.role=='ROLE_ADMIN'"><a href="#/adminblog">BlogApproval</a></li>
+       <li ng-show="currentUser.role=='ROLE_USER'"><a href="#/allblogs">AllBlogs</a></li>
+    </ul>
+    </li>
+    
+    
+    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">JOB<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+       <li ng-show="currentUser.role=='ROLE_ADMIN'||currentUser.role=='ROLE_USER'"><a href="#/job">AddJob</a></li>
+       <li><a href="#/jobdetail">Show Jobs</a></li>       
+    </ul>
+    </li>   
+    
+    <li ng-show="currentUser.role=='ROLE_USER'"><a href="#/updateProfile">Update ProfilePicture</a></li>
+    
+    <li class="dropdown" ng-show="currentUser.role=='ROLE_USER'"><a class="dropdown-toggle" data-toggle="dropdown" href="#">FRIEND<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li><a href="#/showFriend">Friend List</a>
+        <!-- <li><a href="#/showPendingFriend">Pending Friend</a> -->
+        <li><a href="#/showSuggestedFriend">Suggested Friend</a>
+    </ul>
+    </li>
+    
+    <li ng-show="currentUser.role=='ROLE_USER'"><a href="#/chat">CHAT</a></li>
+  
+ </ui>
+    
+    <div class="nav navbar-nav navbar-right" ng-hide="currentUser==undefined">
+         <font color="orange" face="calibri" size='4'>WELCOME {{currentUser.loginname}}</font>
+         
+         <input type="submit" value="Logout" class="btn btn-info" ng-click="logout()">
+   </div>
+   
+   </div>
+   </nav>
+
+
+<div ng-view></div>
+</div>
+</div>
+</body>
+</html>

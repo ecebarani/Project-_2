@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="BlogController">
+
+<div class="container">
+<table class="table table">
+ 
+<tr>
+   <td><h4> Blog Name</h4></td>
+   <td><h4> Blog Content</h4></td>
+</tr>
+
+<tr class="w3-xxlarge" ng-repeat="blog in blogdata">
+      <td>{{blog.blogName}}</td>
+      <td>{{blog.blogContent}}</td>
+</tr>
+</table>
+</div>
+
+
+</body>
+</html>

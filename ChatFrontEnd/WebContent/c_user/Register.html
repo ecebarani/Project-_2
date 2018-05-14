@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+ </head>
+ <body>
+
+<div class="container" ng-controller="UserController">
+<div class="background">
+<div class="w3-tangerine">
+<div class="login-form">  
+<div class="container">
+	<h1 class="well"><center><font face="Monotype Corsiva">Registration Form</font></center></h1>
+	  
+    <form class="w3-xxlarge">
+
+    	<div class="form-group">
+      Login Name      <input type="text" name="loginname" ng-model="User.loginname" class="form-control" placeholder="loginname" required="required">
+        </div>       	
+        <div class="form-group">
+      User Name      <input type="text" name="userName" ng-model="User.userName" class="form-control" placeholder="UserName" required="required">
+        </div>
+        <div class="form-group">
+      Password       <input type="password" name="password" ng-model="User.password" class="form-control" placeholder="Password" required="required">
+        </div>
+      
+        <div class="form-group">
+      Address      <input type="text" name="address" ng-model="User.address" class="form-control" placeholder="address" required="required">
+        </div>
+      
+       <div class="form-group">
+      Email id     <input type="text" name="emailId" ng-model="User.emailId" class="form-control" placeholder="email" required="required">
+        </div>
+            
+        <div class="form-group">
+      Mobile no.     <input type="text" name="mobileNo" ng-model="User.mobileNo" class="form-control" placeholder="mobileNo" required="required">
+        </div>      
+        
+        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login" ng-click="register()">              
+    </form>			
+    
+</div>
+</div>
+</div>
+</div>
+</body> 
+</html>

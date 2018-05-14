@@ -1,0 +1,24 @@
+<div class="container" ng-controller="UserController">
+  <h1 class="well"><center><font face="Monotype Corsiva">Enter Forum</font></center></h1>
+  <div class="col-lg-12 well">
+  <div class="row">
+    <form>
+      <div class="col-sm-12">
+       <div class="row">
+        <div class="col-sm-12 form-group">
+         <label>Forum Name</label>
+         <input type="text" name="forumName" ng-model="forum.forumName" placeholder="Enter User Name Here" class="form-control">
+       </div>
+      </div>
+      <div class="row">
+       <div class="col-sm-12 form-group">
+         <label>Forum Content</label>
+         <textarea rows="20" name="forumContent" ng-model="forum.forumcontent" placeholder="Enter password Here.." class="form-control"></textarea>
+       </div>
+       <center><input type="submit" value="ADD FORUM" class="btn btn-lg btn-info" ng-click="addForum()"/></center>
+     </div>
+    </div>
+   </form>
+  </div>
+ </div>
+</div> 

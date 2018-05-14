@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="BlogController">
+<div class="container">
+<table class="table table">
+  
+   <tr>
+      <td>Blog Name</td>
+      <td>Blog Content</td>
+      <td colspan="2">Operation</td>
+   </tr>
+   
+   <tr class="w3-xlarge" ng-repeat="blog in allBlogdata">
+      <td>{{blog.blogName}}</td>
+      <td>{{blog.blogContent}}</td>
+      <td ng-hide="blog.status=='A'">
+          <input type="button" value="Approve" ng-click="approve(blog.blogId)" class="btn btn-info">
+      </td>    
+      <td ng-hide="blog.status=='p'">
+           <input type="button" value="Reject" ng-click="reject(blog.blogId)" class="btn btn-danger">
+      </td>
+      
+   </tr>        
+   
+</table>   
+</div>
+</div>
+</body>
+</html>
